@@ -1,10 +1,12 @@
-from dotenv import find_dotenv, load_dotenv
+from dotenv import find_dotenv, load_dotenv  # type: ignore
 
 import os
 print("ORACLE STATUS: Reading the Matrix...\n")
 
 dotenv_path = find_dotenv()
-load_dotenv(dotenv_path)
+if not load_dotenv(dotenv_path):
+    print("Error: .env file not found or failed to load")
+    exit(1)
 
 print("Configuration loaded:")
 
